@@ -1,0 +1,29 @@
+TITLE:: Server Async actions and Event Source
+
+Example::
+code::
+
+::
+
+code::
+s.bootP.do(postln(_))
+::
+
+code::
+SynthDef(\test,{ Out.ar(0,SinOsc.ar*0.1) }).sendES(s).do{
+	Synth(\test, target:s)
+}
+::
+
+code::
+(
+p = Help.dir +/+ "sounds/a11wlk01.wav";
+b = Buffer.readES(s, p);
+y = SynthDef(\help_Buffer, { arg out = 0, bufnum;
+    Out.ar( out,
+    	PlayBuf.ar(1, bufnum, BufRateScale.kr(bufnum))
+    )
+});
+(b |*| y){ |b,y| Synth(\help_Buffer, [\bufnum,b])}
+)
+::

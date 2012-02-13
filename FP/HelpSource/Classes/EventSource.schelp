@@ -1,0 +1,122 @@
+CLASS:: EventSource
+summary:: (put short description here)
+categories:: Undocumented classes
+related:: Classes/SomeRelatedClass, Reference/SomeRelatedStuff, etc.
+
+DESCRIPTION::
+(put long description here)
+
+
+CLASSMETHODS::
+
+
+INSTANCEMETHODS::
+
+METHOD:: new
+(describe method here)
+
+returns:: (returnvalue)
+
+METHOD:: initEventSource
+(describe method here)
+
+returns:: (returnvalue)
+
+METHOD:: addListener
+(describe method here)
+
+argument:: f
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: removeListener
+(describe method here)
+
+argument:: f
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: collect
+(describe method here)
+
+argument:: f
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: select
+(describe method here)
+
+argument:: f
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: fold
+(describe method here)
+
+argument:: initial
+(describe argument here)
+
+argument:: f
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: flatCollect
+(describe method here)
+
+argument:: f
+(describe argument here)
+
+argument:: initialState
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: |
+(describe method here)
+
+argument:: otherES
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: takeWhile
+(describe method here)
+
+argument:: f
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: do
+(describe method here)
+
+argument:: f
+(describe argument here)
+
+returns:: (returnvalue)
+
+METHOD:: fire
+(describe method here)
+
+argument:: event
+(describe argument here)
+
+returns:: (returnvalue)
+
+
+EXAMPLES::
+
+code::
+//Applicative Style:
+x = EventSource();
+y = EventSource();
+z = (x |*| y)|{ |x,y| x + y };
+z.do(postln(_))
+x.fire(2);
+y.fire(2);
+::
