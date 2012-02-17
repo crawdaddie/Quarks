@@ -225,3 +225,22 @@ TimerES : EventSource {
     }
 }
 
+EventPlayerES : EventSource {
+    var <routine;
+
+    *new{ |array|
+        ^super.new.init(array)
+    }
+
+    init { |array|
+
+        var t = 0;
+        routine = fork{
+        	array.do{ |tx|
+	        	( tx[0] -t ).wait;
+	        	this.fire( tx[1] );
+	        	t = tx[0];
+        	}
+        }
+    }
+}
